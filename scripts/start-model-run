@@ -1,0 +1,28 @@
+#! /usr/bin/env bash
+
+# -----------------------------------------------------------------------------
+# Script used by the Docker container to start Maestro Solo and initialise a
+# simulation model run.
+#
+# Users wanting to run a model using the Docker image should use the
+# `crafty-brazil-docker` script.
+# -----------------------------------------------------------------------------
+
+export CRAFTY_BRAZIL_HOME=/crafty/CRAFTY_Brazil
+export MAESTRO_SOLO_HOME=/crafty/Maestro
+
+# Start Maestro solo
+/usr/lib/jvm/bellsoft-java8-full-amd64/bin/java \
+    -classpath $MAESTRO_SOLO_HOME/bin \
+    Maestro.Maestro \
+    $CRAFTY_BRAZIL_HOME/data/updated.txt &
+
+# Wait for Maestro to start
+sleep 2
+
+# Run CRAFTY Brazil
+cd $CRAFTY_BRAZIL_HOME
+/usr/lib/jvm/bellsoft-java8-full-amd64/bin/java \
+    -classpath "bin:lib/*" \
+    org.volante.abm.serialization.ModelRunner \
+    "$@"
