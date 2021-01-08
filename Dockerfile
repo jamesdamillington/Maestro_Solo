@@ -40,7 +40,7 @@ COPY ./scripts ./scripts
 
 ENV PATH /crafty/scripts:$PATH
 
-RUN cd Maestro && ant && cd ..
+RUN cd Maestro && ant clean && ant && cd ..
 
-RUN git clone https://github.com/lanecodes/CRAFTY_Brazil.git \
-    && cd CRAFTY_Brazil && git checkout al/main && ant && cd ..
+RUN git clone https://github.com/jamesdamillington/CRAFTY_Brazil.git \
+    && cd CRAFTY_Brazil && git checkout master && ant clean && ant && cd ..
