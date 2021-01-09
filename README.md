@@ -13,6 +13,8 @@ ant clean && ant
 ## Running Maestro Solo
 
 To run Maestro Solo on its own, first set the environment variables
+=======
+## Running
 
 ```bash
 MAESTRO_SOLO_HOME=/path/to/Maestro_Solo
@@ -20,6 +22,7 @@ CRAFTY_BRAZIL_HOME=/path/to/CRAFTY_TemplateCoBRA
 ```
 
 Suppose we want to use Maestro Solo to continuously check that the file `data/updated.txt` within the CRAFTY Brazil directory exists, and recreate it if necessary. This can be achieved by running
+=======
 
 ```bash
 java -cp $MAESTRO_SOLO_HOME/Maestro/bin/ \
@@ -67,3 +70,4 @@ Docker does not interact particularly well with graphical interfaces. Consequent
 
 [crafty-brazil]: https://github.com/jamesdamillington/CRAFTY_Brazil
 [model-run-instructions]: https://www.wiki.ed.ac.uk/display/CRAFTY/Model+Run+Instructions.
+=======
