@@ -1,0 +1,37 @@
+#! /usr/bin/env bash
+
+# -----------------------------------------------------------------------------
+# Script to run a CRAFTY Brazil model in a Docker container.
+#
+# Assumes the `crafty-brazil-solo` image has been built. See documentation in
+# the Dockerfile in this repository for instructions on how to do this.
+#
+# This script has two required positional arguments:
+#
+# 1. Path to the CRAFTY Brazil data directory on the local machine where
+#    the model run specification is provided.
+# 2. Path to the directory on the local machine where simulation outputs will
+#    be generated.
+#
+# Both of these need to be absolute (rather than relative) paths.
+#
+# All remaining arguments will be passed directly to the CRAFTY Brazil
+# `ModelRunner` class. These are the same arguments that users will be familiar
+# with specifying in Eclipse, and which are documented in the CRAFTY Model Run
+# instructions https://www.wiki.ed.ac.uk/display/CRAFTY/Model+Run+Instructions.
+#
+# Example usage:
+#
+# $ crafty-brazil-docker /path/to/CRAFTY_Brazil/data /path/to/output \
+#       -f xml/Scenario.xml -n 1 -o 0 -r 1
+# -----------------------------------------------------------------------------
+
+LOCAL_DATA_DIR=$1
+LOCAL_OUTPUT_DIR=$2
+let n_crafty_args=$#-2
+
+docker run --rm -it \
+   -v $LOCAL_DATA_DIR:/crafty/CRAFTY_Brazil/data \
+   -v $LOCAL_OUTPUT_DIR:/crafty/CRAFTY_Brazil/output \
+   crafty-brazil-solo \
+   start-model-run ${@:3:$n_crafty_args}
