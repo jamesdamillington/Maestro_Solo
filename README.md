@@ -13,7 +13,7 @@ ant clean && ant
 ## Running Maestro Solo
 
 To run Maestro Solo on its own, first set the environment variables
-=======
+
 ## Running
 
 ```bash
@@ -22,7 +22,6 @@ CRAFTY_BRAZIL_HOME=/path/to/CRAFTY_TemplateCoBRA
 ```
 
 Suppose we want to use Maestro Solo to continuously check that the file `data/updated.txt` within the CRAFTY Brazil directory exists, and recreate it if necessary. This can be achieved by running
-=======
 
 ```bash
 java -cp $MAESTRO_SOLO_HOME/Maestro/bin/ \
