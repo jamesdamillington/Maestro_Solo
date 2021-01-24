@@ -58,6 +58,22 @@ scripts/crafty-brazil-docker /path/to/CRAFTY_Brazil/data /path/to/output \
 
 The first two arguments are mandatory, and specify the paths to the data and output directories on your system. These must be absolute rather than relative paths. All remaining arguments will be passed directly to the CRAFTY Brazil `ModelRunner` class. These are the same arguments that users will be familiar with specifying in Eclipse, and which are documented in the [CRAFTY Model Run instructions][model-run-instructions].
 
+### Running a different version of CRAFTY-Brazil
+
+By default the Docker image will clone the latest release of [CRAFTY Brazil][crafty-brazil]. To run a specific release, edit the Dockerfile. For example, to run v1.0.2 change
+
+```bash
+RUN git clone https://github.com/jamesdamillington/CRAFTY_Brazil.git \
+    && cd CRAFTY_Brazil && git checkout master && ant clean && ant && cd ..
+```
+
+to
+
+```bash
+RUN git clone https://github.com/jamesdamillington/CRAFTY_Brazil.git \
+    && cd CRAFTY_Brazil && git checkout v1.0.2 && ant clean && ant && cd ..
+```
+
 ### Limitations when running models with Docker
 
 Docker does not interact particularly well with graphical interfaces. Consequently attempts to run models that specify graphical displays in their scenario files are expected to fail. This is consistent with the [documented preconditions][model-run-instructions] for running CRAFTY models on computing clusters. Model displays can be disabled by providing the following display configuration in your scenario `.xml` file
