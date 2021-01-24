@@ -4,6 +4,8 @@
 #
 # $ docker build -t crafty-brazil-solo .
 #
+# To build an image using a specific version (not latest) of CRAFTY-Brazil, edit final line (change 'master' to required release tag)
+#
 # To start an interactive session inside a container based on this image
 # run
 #
