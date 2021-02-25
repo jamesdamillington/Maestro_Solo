@@ -1,5 +1,5 @@
 # Maestro_Solo
-Dummy application used with [CRAFTY Brazil][crafty-brazil] (so simulate presence of BioLUC model)
+Dummy application used with [CRAFTY Brazil][crafty-brazil] (to simulate presence of BioLUC model)
 
 ## Building
 
