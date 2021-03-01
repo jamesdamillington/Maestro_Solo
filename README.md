@@ -1,5 +1,7 @@
 # Maestro_Solo
-Dummy application used with [CRAFTY Brazil][crafty-brazil] (to simulate presence of BioLUC model)
+[![DOI](https://zenodo.org/badge/274607529.svg)](https://zenodo.org/badge/latestdoi/274607529)
+
+Application used with [CRAFTY Brazil][crafty-brazil] to simulate presence of BioLUC model
 
 ## Building
 
